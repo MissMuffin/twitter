@@ -22,8 +22,7 @@
 			type: 'GET',
 			dataType: 'jsonp',
 			data: {
-				q: keyword,
-				rpp: 5
+				q: keyword
 			},			
 			success: displayTweets
 		});

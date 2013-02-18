@@ -4,12 +4,15 @@ $(document).ready(function($) {
 		var keyword = $('#keySearch').val();
 		$('#tweets').html('');
 		$('#tweets').twitterSearch(keyword);
+		$('#keySearch').val('');
 	});
 
 	$("#userName").submit(function(){
-		var userSearchText = $("#userSearch").val();
+		var user = $("#userSearch").val();
 		$('#tweets').html('');
-		$("#tweets").twitterTimeline("@"+userSearchText);
+		$("#tweets").twitterTimeline("@"+user);
+		bioData(user);
+		$('userSearch').val('');
 		return false;
 	});
 });		
