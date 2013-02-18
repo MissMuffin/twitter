@@ -8,7 +8,7 @@
 	// -- Private ------------------------------------------------------------------------------------------------------------------
 	//
 	
-	var tweetTemplate = '<li class="tweet"><em id="tweeter">USER</em>: CONTENT<div class="time">TIME</div></li>'; 
+	var tweetTemplate = '<li class=CLASS><em id="tweeter">USER</em>: CONTENT<div class="time">TIME</div></li>'; 
 	var $container = null;
 
 	/**
@@ -36,9 +36,15 @@
 		*/
 	function displayTweets(data) {
 		for (var i = 0; i < data.length; i++) {
+			var tweetKlasse = "tweet";
+			var content = ify.clean(data[i].text);
+			if(content.indexOf('RT')===0){
+				tweetKlasse = "retweet";
+			}
 			var tweet = tweetTemplate
+				.replace('CLASS', tweetKlasse)
 				.replace('USER', data[i].user.screen_name)
-				.replace('CONTENT', ify.clean(data[i].text))
+				.replace('CONTENT', content)
 				.replace('TIME', timeAgo(data[i].created_at));
 			if($container)	
 			$container.append(tweet); 
