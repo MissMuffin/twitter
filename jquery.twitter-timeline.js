@@ -41,7 +41,6 @@
 			if(content.indexOf('RT')===0){
 				tweetKlasse = "retweet";
 			}
-			console.log(content.indexOf('RT'));
 			var tweet = tweetTemplate
 				.replace('CLASS', tweetKlasse)
 				.replace('USER', data[i].user.screen_name)

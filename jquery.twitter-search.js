@@ -8,7 +8,7 @@
 	// -- Private ------------------------------------------------------------------------------------------------------------------
 	//
 	
-	var tweetTemplate = '<li class="tweet"><img class="tweetUserPic" src="imgURL" ><em id="tweeter">USER</em>: CONTENT<div class="time">TIME</div></li>'; 
+	var tweetTemplate = '<li class=CLASS><img class="tweetUserPic" src="imgURL" ><em id="tweeter">USER</em>: CONTENT<div class="time">TIME</div></li>'; 
 	var $container = null;
 
 	/**
@@ -33,11 +33,15 @@
 		* @param {object} data returned from Twitter API
 		*/
 	function displayTweets(data) {
-		console.log(data.results);
-		console.log(data.results[1].profile_img_url)
 		for (var i = 0; i < data.results.length; i++) {
+			var tweetKlasse = "tweet";
 			var content = ify.clean(data.results[i].text);
+			console.log(content.indexOf('RT'));
+			if(content.indexOf('RT')===0){
+				tweetKlasse = "retweet";
+			}
 			var tweet = tweetTemplate
+				.replace('CLASS', tweetKlasse)
 				.replace('imgURL', data.results[i].profile_image_url)
 				.replace('USER', data.results[i].from_user)
 				.replace('CONTENT', content)

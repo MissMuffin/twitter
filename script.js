@@ -6,6 +6,7 @@ $(document).ready(function($) {
 		$('#pictureFrame').html('');
 		$('#userDetails').html('');
 		$('#tweets').twitterSearch(keyword);
+		$('#userSearch').val('');
 		$('#keySearch').val('');
 	});
 
@@ -16,7 +17,8 @@ $(document).ready(function($) {
 		$('#userDetails').html('');
 		$("#tweets").twitterTimeline("@"+user);
 		bioData(user);
-		$('userSearch').val('');
+		$('#userSearch').val('');
+		$('#keySearch').val('');
 		return false;
 	});
 });		
