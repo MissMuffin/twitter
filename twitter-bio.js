@@ -19,7 +19,7 @@ function showBio(data){
 				 +"<li id='user_description'>"+user.description+"</li>"
 				 +"<li id='user_follower_count'>Follower:&nbsp; "+user.followers_count+"</li>";
 	$('#userDetails').append(profile);
-	getFollowers(user.screen_name);
+	//getFollowers(user.screen_name);
 
 };
 

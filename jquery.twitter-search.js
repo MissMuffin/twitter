@@ -33,7 +33,6 @@
 		* @param {object} data returned from Twitter API
 		*/
 	function displayTweets(data) {
-		//$.each(data.results, function(i, v){
 		for (var i = 0; i < data.results.length; i++) {
 			var tweetKlasse = "tweet";
 			var content = ify.clean(data.results[i].text);
@@ -55,7 +54,6 @@
 			$tweet.click(function(){
 				$('#pictureFrame').html('');
 				$('#userDetails').html('');
-				//console.log($(this).data("user"));
 				bioData($(this).data("user"));				
 			});
 

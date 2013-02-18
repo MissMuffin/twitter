@@ -5,6 +5,7 @@ $(document).ready(function($) {
 		$('#tweets').html('');
 		$('#pictureFrame').html('');
 		$('#userDetails').html('');
+		//$('#userFollowers').html('');
 		$('#tweets').twitterSearch(keyword);
 		$('#userSearch').val('');
 		$('#keySearch').val('');
@@ -15,7 +16,7 @@ $(document).ready(function($) {
 		$('#tweets').html('');
 		$('#pictureFrame').html('');
 		$('#userDetails').html('');
-		$('#userFollowers').html('');
+		//$('#userFollowers').html('');
 		$("#tweets").twitterTimeline("@"+user);
 		bioData(user);
 		$('#userSearch').val('');
