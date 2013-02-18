@@ -1,0 +1,78 @@
+body{
+	font-family: 'Titillium Web', Helvetica, sans-serif;
+
+	background-image: url("Bilder/twit_background_ver2.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+header {
+	background-color: black;
+	height: 110px;
+}
+
+h1{
+	position: absolute;
+	right: 0;
+	font-size: 90px;
+	text-align: center;
+	color: #3a99c9;
+
+}
+
+h2{
+	font-size: 0.8em;
+	color: #406c80;
+	float: right;
+	top: 91px;
+
+}
+
+div#tweetFrame{
+
+	width: 800px;
+	height: 600px;
+	background-color: rgba(0,0,0,0.8);
+	margin-left: 10px;	
+	float: left;
+	border-radius: 5px;
+}
+
+div#searchFrame{
+
+	width: 200px;
+	height: 600px;
+	background-color: blue;
+	float: left;
+	background-color: rgba(0,0,0,0.8);
+	border-radius: 5px;
+
+
+}
+
+div#mainFrame{
+	width: 1010px;
+	height: 600px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+div.searches{
+
+	margin-left: 5%;
+	margin-top: 10%;
+}
+
+h3.searchFrameHeader{
+	color: red;
+	text-align: left;
+	font-size: 1.5em;
+
+}
+
+p{
+	color: green;
+}
