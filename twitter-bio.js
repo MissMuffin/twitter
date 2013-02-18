@@ -45,7 +45,7 @@ function getFollowerName(data){
 
 		console.log(data);
 		var followerImg = null;
-		for(var i = 0 ; i<data.ids.length; i++){
+		for(var i = 0 ; i<5; i++){
 			$.ajax({
 				url: 'https://api.twitter.com/1/users/show.json',
 				type: 'GET',
