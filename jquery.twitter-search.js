@@ -36,11 +36,11 @@
 		console.log(data.results);
 		console.log(data.results[1].profile_img_url)
 		for (var i = 0; i < data.results.length; i++) {
+			var content = ify.clean(data.results[i].text);
 			var tweet = tweetTemplate
-
 				.replace('imgURL', data.results[i].profile_image_url)
 				.replace('USER', data.results[i].from_user)
-				.replace('CONTENT', ify.clean(data.results[i].text))
+				.replace('CONTENT', content)
 				.replace('TIME', timeAgo(data.results[i].created_at));
 				
 			$container.append(tweet); 
