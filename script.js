@@ -15,7 +15,6 @@ $(document).ready(function($) {
 		$('#tweets').html('');
 		$('#pictureFrame').html('');
 		$('#userDetails').html('');
-		$('#userFollowers').html('');
 		$("#tweets").twitterTimeline("@"+user);
 		bioData(user);
 		$('#userSearch').val('');
