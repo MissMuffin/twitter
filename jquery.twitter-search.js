@@ -8,7 +8,7 @@
 	// -- Private ------------------------------------------------------------------------------------------------------------------
 	//
 	
-	var tweetTemplate = '<li class="tweet"><em id="tweeter">USER</em>: CONTENT<div class="time">TIME</div></li>'; 
+	var tweetTemplate = '<li class="tweet"><img class="tweetUserPic" src="imgURL" ><em id="tweeter">USER</em>: CONTENT<div class="time">TIME</div></li>'; 
 	var $container = null;
 
 	/**
@@ -35,8 +35,11 @@
 		*/
 	function displayTweets(data) {
 		console.log(data.results);
+		console.log(data.results[1].profile_img_url)
 		for (var i = 0; i < data.results.length; i++) {
 			var tweet = tweetTemplate
+
+				.replace('imgURL', data.results[i].profile_image_url)
 				.replace('USER', data.results[i].from_user)
 				.replace('CONTENT', ify.clean(data.results[i].text))
 				.replace('TIME', timeAgo(data.results[i].created_at));
