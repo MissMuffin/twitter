@@ -80,7 +80,10 @@ div#pictureFrame{
 	display: block;
 }
 
-
+.retweet{
+	background-color: rgba(170,191,197,0.1);
+	padding-left: 50px;
+}
 
 div#mainFrame{
 	width: 1010px;
@@ -97,15 +100,8 @@ div.searches{
 	margin-top: 10%;
 }
 
-h3.searchFrameHeader{
-	color: red;
-	text-align: left;
-	font-size: 1.5em;
-
-}
-
 #searchFrame{
-	margin-left: 30px;
+	margin-left: 20px;
 }
 
 div#searchFrame{
@@ -121,10 +117,6 @@ div#searchFrame{
 
 #searchFrame input{
 	border-radius: 4px;
-}
-
-p{
-	color: green;
 }
 
 ul#tweets {
