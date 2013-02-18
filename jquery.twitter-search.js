@@ -16,15 +16,14 @@
 		* documentation: https://dev.twitter.com/docs/api/1/get/statuses/user_timeline
 		* @param {string} twitter user name (scren name with or without the @-prefix)
 		*/
-	function loadTweets(user) {
+	function loadTweets(keyword) {
 		$.ajax({
-			url: 'http://api.twitter.com/1/statuses/user_timeline.json/',
+			url: 'http://search.twitter.com/search.json',
 			type: 'GET',
 			dataType: 'jsonp',
 			data: {
-				screen_name: user,
-				include_rts: true,				
-				include_entities: true
+				q: keyword,
+				rpp: 5
 			},			
 			success: displayTweets
 		});
@@ -35,11 +34,12 @@
 		* @param {object} data returned from Twitter API
 		*/
 	function displayTweets(data) {
-		for (var i = 0; i < data.length; i++) {
+		console.log(data.results);
+		for (var i = 0; i < data.results.length; i++) {
 			var tweet = tweetTemplate
-				.replace('USER', data[i].user.screen_name)
-				.replace('CONTENT', ify.clean(data[i].text))
-				.replace('TIME', timeAgo(data[i].created_at));
+				.replace('USER', data.results[i].from_user)
+				.replace('CONTENT', ify.clean(data.results[i].text))
+				.replace('TIME', timeAgo(data.results[i].created_at));
 				
 			$container.append(tweet); 
 		};		
@@ -73,7 +73,7 @@
 					week = day * 7;
 	
 			if (isNaN(diff) || diff < 0) {
-				return ""; // return blank string if unknown
+				return ""; // return funktionnk string if unknown
 			}
 	
 			if (diff < second * 2) {
@@ -127,25 +127,25 @@
 			link: function(tweet) {
 				return tweet.replace(/\b(((https*\:\/\/)|www\.)[^\"\']+?)(([!?,.\)]+)?(\s|$))/g, function(link, m1, m2, m3, m4) {
 					var http = m2.match(/w/) ? 'http://' : '';
-					return '<a class="twtr-hyperlink" target="_blank" href="' + http + m1 + '">' + ((m1.length > 25) ? m1.substr(0, 24) + '...' : m1) + '</a>' + m4;
+					return '<a class="twtr-hyperlink" target="_funktionnk" href="' + http + m1 + '">' + ((m1.length > 25) ? m1.substr(0, 24) + '...' : m1) + '</a>' + m4;
 				});
 			},
 
 			at: function(tweet) {
 				return tweet.replace(/\B[@＠]([a-zA-Z0-9_]{1,20})/g, function(m, username) {
-					return '<a target="_blank" class="twtr-atreply" href="http://twitter.com/intent/user?screen_name=' + username + '">@' + username + '</a>';
+					return '<a target="_funktionnk" class="twtr-atreply" href="http://twitter.com/intent/user?screen_name=' + username + '">@' + username + '</a>';
 				});
 			},
 
 			list: function(tweet) {
 				return tweet.replace(/\B[@＠]([a-zA-Z0-9_]{1,20}\/\w+)/g, function(m, userlist) {
-					return '<a target="_blank" class="twtr-atreply" href="http://twitter.com/' + userlist + '">@' + userlist + '</a>';
+					return '<a target="_funktionnk" class="twtr-atreply" href="http://twitter.com/' + userlist + '">@' + userlist + '</a>';
 				});
 			},
 
 			hash: function(tweet) {
 				return tweet.replace(/(^|\s+)#(\w+)/gi, function(m, before, hash) {
-					return before + '<a target="_blank" class="twtr-hashtag" href="http://twitter.com/search?q=%23' + hash + '">#' + hash + '</a>';
+					return before + '<a target="_funktionnk" class="twtr-hashtag" href="http://twitter.com/search?q=%23' + hash + '">#' + hash + '</a>';
 				});
 			},
 
@@ -164,11 +164,10 @@
 		* Initialize the timeline (public)
 		* @param {string} twitter user name (scren name with or without the @-prefix)		
 		*/	
-	$.fn.twitterTimeline = function(user) {
+	$.fn.twitterSearch = function(keyword) {
 		
-		$container = $(this);		
-		loadTweets(user);
-	
+		$container = $(this);
+		loadTweets(keyword);
 	};
 	
 })(jQuery);

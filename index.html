@@ -5,6 +5,7 @@
 	<title>GIM Twitter Feed Example</title>
 	<script src="http://code.jquery.com/jquery-1.7.2.js"></script>	
 	<script src="jquery.twitter-timeline.js"></script>
+	<script src="jquery.twitter-search.js"></script>
 	<script src="script.js"></script>	
 	<link rel="stylesheet" href="Style/reset.css"/>
 	<link rel="stylesheet" type="text/css" href="Style/style.css">
@@ -19,18 +20,15 @@
 			
 			<div>
 			<form id="userName">
-				<input type="text" id="userSearch" />
+				<input type="search" id="userSearch" placeholder="enter Username here"/>
 				<input type="submit" value="Search">
-
 			</form>
 			</div>
 
 			<div>
 				<form id="keywords">
-					<input type="text" id="keySearch">
+					<input type="search" id="keySearch" placeholder="enter keyword here">
 					<input type="submit" value="Search">
-
-
 				</form>
 			</div>
 
