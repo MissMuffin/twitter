@@ -3,6 +3,8 @@ $(document).ready(function($) {
 		event.preventDefault();
 		var keyword = $('#keySearch').val();
 		$('#tweets').html('');
+		$('#pictureFrame').html('');
+		$('#userDetails').html('');
 		$('#tweets').twitterSearch(keyword);
 		$('#keySearch').val('');
 	});
@@ -10,6 +12,8 @@ $(document).ready(function($) {
 	$("#userName").submit(function(){
 		var user = $("#userSearch").val();
 		$('#tweets').html('');
+		$('#pictureFrame').html('');
+		$('#userDetails').html('');
 		$("#tweets").twitterTimeline("@"+user);
 		bioData(user);
 		$('userSearch').val('');

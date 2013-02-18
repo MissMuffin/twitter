@@ -18,5 +18,5 @@ function showBio(data){
 	var profile = "<li id='user_name'>"+user.name+"</li>"
 				 +"<li id='user_screen_name'>"+user.screen_name+"</li>"
 				 +"<li id='user_description'>"+user.description+"</li>";
-	$('#userdetails').append(profile);
+	$('#userDetails').append(profile);
 };
