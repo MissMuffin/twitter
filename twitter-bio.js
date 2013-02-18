@@ -42,6 +42,7 @@ function getFollowers(user){
 };
 
 function getFollowerName(data){
+
 		console.log(data);
 		var followerImg = null;
 		for(var i = 0 ; i<data.ids.length; i++){
@@ -61,6 +62,6 @@ function getFollowerName(data){
 
 function getFollowerPic(data){
 		console.log(data);
-		$('#userFollowers').append('<a href="http://twitter.com/'+data.screen_name+'" target="blank"><img src="'+data.profile_image_url+'"></a>')
+		$('#userFollowers').append('<a href="http://twitter.com/'+data.screen_name+'" target="blank"><img src="'+data.profile_image_url+'"></a>');
 
 }
