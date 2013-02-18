@@ -8,7 +8,7 @@
 	// -- Private ------------------------------------------------------------------------------------------------------------------
 	//
 	
-	var tweetTemplate = '<li class=CLASS><img class="tweetUserPic" src="imgURL" ><em id="tweeter">USER</em>: CONTENT<div class="time">TIME</div></li>'; 
+	var tweetTemplate = '<li class=CLASS><img class="tweetUserPic" src="imgURL"><em id="ID" class="tweeter">USER</em>: CONTENT<div class="time">TIME</div></li>'; 
 	var $container = null;
 
 	/**
@@ -33,22 +33,36 @@
 		* @param {object} data returned from Twitter API
 		*/
 	function displayTweets(data) {
+		//$.each(data.results, function(i, v){
 		for (var i = 0; i < data.results.length; i++) {
 			var tweetKlasse = "tweet";
 			var content = ify.clean(data.results[i].text);
-			console.log(content.indexOf('RT'));
+			var user = data.results[i].from_user;
+
 			if(content.indexOf('RT')===0){
 				tweetKlasse = "retweet";
 			}
 			var tweet = tweetTemplate
+				.replace('ID', user)
 				.replace('CLASS', tweetKlasse)
 				.replace('imgURL', data.results[i].profile_image_url)
-				.replace('USER', data.results[i].from_user)
+				.replace('USER', user)
 				.replace('CONTENT', content)
 				.replace('TIME', timeAgo(data.results[i].created_at));
-				
-			$container.append(tweet); 
-		};		
+			
+			var $tweet = $(tweet);
+			$tweet.data("user", user)
+			$tweet.click(function(){
+				$('#pictureFrame').html('');
+				$('#userDetails').html('');
+				//console.log($(this).data("user"));
+				bioData($(this).data("user"));				
+			});
+
+
+			$container.append($tweet); 
+		
+		};	
 	};
 
 	//

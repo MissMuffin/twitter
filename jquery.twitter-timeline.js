@@ -8,7 +8,7 @@
 	// -- Private ------------------------------------------------------------------------------------------------------------------
 	//
 	
-	var tweetTemplate = '<li class=CLASS><em id="tweeter">USER</em>: CONTENT<div class="time">TIME</div></li>'; 
+	var tweetTemplate = '<li class=CLASS><em class="tweeter">USER</em>: CONTENT<div class="time">TIME</div></li>'; 
 	var $container = null;
 
 	/**

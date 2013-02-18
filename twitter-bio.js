@@ -12,7 +12,6 @@ function bioData(user){
 };
 
 function showBio(data){
-	console.log(data);
 	var user = data;
 	$('#pictureFrame').append('<img id="user_picture" src="'+user.profile_image_url+'"">');
 	var profile = "<li id='user_name'>"+user.name+"</li>"
