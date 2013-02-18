@@ -7,8 +7,8 @@
 	//
 	// -- Private ------------------------------------------------------------------------------------------------------------------
 	//
-	
-	var tweetTemplate = '<li class=CLASS><em class="tweeter">USER</em>: CONTENT<div class="time">TIME</div></li>'; 
+
+	var tweetTemplate = '<li class=CLASS><em id="tweeter">USER</em>: <p id="tweetText">CONTENT</p><div class="time">TIME</div></li>'; 
 	var $container = null;
 
 	/**
@@ -46,7 +46,7 @@
 				.replace('USER', data[i].user.screen_name)
 				.replace('CONTENT', content)
 				.replace('TIME', timeAgo(data[i].created_at));
-				
+			if($container)	
 			$container.append(tweet); 
 		};		
 	};
