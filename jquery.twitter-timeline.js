@@ -40,7 +40,7 @@
 				.replace('USER', data[i].user.screen_name)
 				.replace('CONTENT', ify.clean(data[i].text))
 				.replace('TIME', timeAgo(data[i].created_at));
-				
+			if($container)	
 			$container.append(tweet); 
 		};		
 	};
