@@ -67,9 +67,18 @@
 	function displayUsers(data) {
 		var userList = [];
 		for (var i = 0; i < data.results.length; i++){
-			userList.push(data.results[i].from_user);
+			var 
+			userList.push(data.results[i].profile_image_url);
 		}
+		
 		$.unique(userList);
+
+		for (var j = 0; j < userList.length; j++){
+
+			$("#tweetFrame").append('<li><img src="' + userList[j] + '" /></li>');
+			//console.log(userList[j].profile_image_url);
+		}
+		//console.log(data);
 		console.log(userList);
 	};
 
