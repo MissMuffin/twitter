@@ -66,19 +66,31 @@
 
 	function displayUsers(data) {
 		var userList = [];
+
+			var profileLink = "";
+			var profileImageUrl = "";
+			var uid = "";
+			var userName = "";
+
 		for (var i = 0; i < data.results.length; i++){
-			userList.push(data.results[i].profile_image_url);
+			
+			profileImageUrl = data.results[i].profile_image_url;
+			uid = data.results[i].from_user_id;
+			userName = data.results[i].from_user;
+
+			profileLink = '<img data-tc-id="' + uid + '" data-tc-username="' + userName + '" src="' + profileImageUrl + '" />';
+
+			userList.push(profileLink);
+
 		}
 
 		$.unique(userList);
 
 		for (var j = 0; j < userList.length; j++){
 
-			$("#tweetFrame").append('<li><img src="' + userList[j] + '" /></li>');
+			$("#tweetFrame").append('<li>' + userList[j] + '</li>');
 			//console.log(userList[j].profile_image_url);
 		}
-		//console.log(data);
-		console.log(userList);
 	};
 
 	//
