@@ -71,31 +71,17 @@ console.log(data);
 
 			var userData = {};
 
-			//check if array already contains an object, add if not
-		//	for(var k = 0; k < userList.length; k++){
-		//		if (!userList[k][userName].contains(data.results[i].from_user)){
-
-					//set attributes to array objects
-					userData["profileImageUrl"] = data.results[i].profile_image_url;
-					userData["uid"] = data.results[i].from_user_id;
-					userData["userName"] = data.results[i].from_user;
-			
-					userList.push(userData);
-		//		}
+				//set attributes to array objects
+				userData["profileImageUrl"] = data.results[i].profile_image_url;
+				userData["uid"] = data.results[i].from_user_id;
+				userData["userName"] = data.results[i].from_user;
 		
-			//if (!containsUser(data.results[i]["username"])){
-			//userList.push(userData);
-			//}	
+				userList.push(userData);
 			}
-
-	
-
-		//$.unique(userList);
 		
 		for (var j = 0; j < userList.length; j++){
 
 			$("#users").append('<img src="' + userList[j]["profileImageUrl"] + '" class="userImage" />');
-			//console.log(userList[j].profile_image_url);
 		}
 	};
 
