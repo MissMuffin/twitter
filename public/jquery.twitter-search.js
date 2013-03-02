@@ -7,8 +7,8 @@
 	//
 	// -- Private ------------------------------------------------------------------------------------------------------------------
 	//
-	
-	var tweetTemplate = '<li class=CLASS><img class="tweetUserPic" src="imgURL" ><em id="tweeter">USER</em>: <p id="tweetText">CONTENT</p><div class="time">TIME</div></li>'; 
+
+	var tweetTemplate = '<li class=CLASS><img class="tweetUserPic" src="imgURL" ><em id="tweeter">USER</em>: <p id="tweetText">CONTENT</p><div class="time">TIME</div></li>';
 	var $container = null;
 
 	/**
@@ -23,7 +23,7 @@
 			dataType: 'jsonp',
 			data: {
 				q: keyword
-			},			
+			},
 			success: displayUsers
 		});
 	};
@@ -48,29 +48,28 @@
 				.replace('USER', user)
 				.replace('CONTENT', content)
 				.replace('TIME', timeAgo(data.results[i].created_at));
-			
+
 			var $tweet = $(tweet);
 			$tweet.data("user", user)
 			$tweet.click(function(){
 				$('#pictureFrame').html('');
 				$('#userDetails').html('');
-				bioData($(this).data("user"));				
+				bioData($(this).data("user"));
 			});
 
 
-			$container.append($tweet); 
-		
-		};	
+			$container.append($tweet);
+
+		};
 		displayUsers(data);
 	};
 
 	function displayUsers(data) {
 		var userList = [];
 		for (var i = 0; i < data.results.length; i++){
-			var 
 			userList.push(data.results[i].profile_image_url);
 		}
-		
+
 		$.unique(userList);
 
 		for (var j = 0; j < userList.length; j++){
@@ -85,7 +84,7 @@
 	//
 	// -- Private utility functions ------------------------------------------------------------------------------------------------------------------
 	//	the following two functions are helpers for formatting entries. You probably shouldn't change any of that code.
-		
+
 	/**
 		* relative time calculator
 		* borrowed from http://twitter.com/javascripts/widgets/widget.js
@@ -95,64 +94,64 @@
 	function timeAgo(dateString) {
 			var rightNow = new Date();
 			var then = new Date(dateString);
-	
+
 			if ($.browser.msie) {
 				// IE can't parse these crazy Ruby dates
 				then = Date.parse(dateString.replace(/( \+)/, ' UTC$1'));
 			}
-	
+
 			var diff = rightNow - then;
-	
+
 			var second = 1000,
 					minute = second * 60,
 					hour = minute * 60,
 					day = hour * 24,
 					week = day * 7;
-	
+
 			if (isNaN(diff) || diff < 0) {
 				return ""; // return funktionnk string if unknown
 			}
-	
+
 			if (diff < second * 2) {
 				// within 2 seconds
 				return "right now";
 			}
-	
+
 			if (diff < minute) {
 				return Math.floor(diff / second) + " seconds ago";
 			}
-	
+
 			if (diff < minute * 2) {
 				return "about 1 minute ago";
 			}
-	
+
 			if (diff < hour) {
 				return Math.floor(diff / minute) + " minutes ago";
 			}
-	
+
 			if (diff < hour * 2) {
 				return "about 1 hour ago";
 			}
-	
+
 			if (diff < day) {
 				return	Math.floor(diff / hour) + " hours ago";
 			}
-	
+
 			if (diff > day && diff < day * 2) {
 				return "yesterday";
 			}
-	
+
 			if (diff < day * 365) {
 				return Math.floor(diff / day) + " days ago";
 			}
-	
+
 			else {
 				return "over a year ago";
 			}
-	
+
 		};
-	
-	
+
+
 		/**
 			* The Twitalinkahashifyer!
 			* borrowed from http://twitter.com/javascripts/widgets/widget.js
@@ -195,16 +194,16 @@
 
 	//
 	// -- Public ------------------------------------------------------------------------------------------------------------------
-	//	
+	//
 
 	/**
 		* Initialize the timeline (public)
-		* @param {string} twitter user name (scren name with or without the @-prefix)		
-		*/	
+		* @param {string} twitter user name (scren name with or without the @-prefix)
+		*/
 	$.fn.twitterSearch = function(keyword) {
-		
+
 		$container = $(this);
 		loadTweets(keyword);
 	};
-	
+
 })(jQuery);
