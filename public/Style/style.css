@@ -1,148 +1,52 @@
 body{
 	font-family: 'Titillium Web', Helvetica, sans-serif;
+	background-color: grey;
+}
 
-	background-image: url("Bilder/twit_background_ver2.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: left center;
+header{
+	background-color: black;
+	height: 120px;
 }
 
 header {
-	background-color: black;
-	height: 110px;
+	
 }
 
 h1{
-	position: absolute;
-	right: 0;
-	font-size: 90px;
-	text-align: center;
-	color: #3a99c9;
-
-}
-
-h2{
-	font-size: 0.8em;
-	color: #406c80;
+	color: green;
+	font-size: 60px;
+	position: relative;
 	float: right;
-	top: 91px;
+
 
 }
 
-div#tweetFrame{
+#logo{
+	display: inline-block;
+	height: 111px;
+	width: 526px;
+}
 
-	width: 73.5%;
-	height: 600px;
-	background-color: rgba(0,0,0,0.8);
-	margin-right: 10px;	
+div#main{
+
+}
+
+#users{
 	float: left;
-	border-radius: 5px;
-	overflow: auto;
-
+	margin: 35px 0 0 35px;
+ 	display: block;
+ 	height: 350px;
+ 	width: 330px;
+ 	background-color: rgba(0,0,0,0.56);
+ 	border-radius: 7px;
 }
 
-div#bioFrame{
-
-	width: 23.5%;
-	height: 600px;
-	background-color: blue;
-	float: left;
-	background-color: rgba(0,0,0,0.8);
-	border-radius: 5px;
-
-}
-
-div#pictureFrame{
-	width: 60px;
-	margin: auto;
-	padding: 20px;
-	padding-top: 25px;
-}
-
-#pictureFrame img{
+div#userFrame{
+	height: 100%;
 	width: 100%;
+	background-color: blue;
 }
 
-#bioFrame li{
-	padding: 2px;
-	margin: 7px;
-	border-bottom: solid 1px rgba(100,100,100,100.8); 
-	color: #aabfc5;
-
-}
-
-#tweeter {
-	color: #c4a9be;
-}
-
-.tweetUserPic{
-	margin: 2px;
+.userImage{
 	display: block;
-}
-
-.retweet{
-	background-color: rgba(170,191,197,0.1);
-	padding-left: 50px;
-}
-
-div#mainFrame{
-	width: 1010px;
-	height: 600px;
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
-
-}
-
-div.searches{
-
-	margin-left: 5%;
-	margin-top: 10%;
-}
-
-#searchFrame{
-	margin-left: 20px;
-}
-
-div#searchFrame{
-	position: absolute;
-	top: 60px;
-
-}
-
-#searchFrame div{
-	float: left;
-	padding: 7px;
-}
-
-#searchFrame input{
-	border-radius: 4px;
-}
-
-ul#tweets {
-	margin: 20px;
-	color: #aabfc5;
-}
-
-#tweets a {
-	color: #3a99c9;
-	text-decoration: none;
-}
-
-#tweets li {
-	margin: 2px;
-	padding: 6.5px;
-	border-bottom: solid 1px rgba(100,100,100,100.8);
-	border-radius: 3px;
-}
-
-#tweets li:hover {
-	background-color: rgba(0,0,0,0.2);
-	transition: 0.2s;
-}
-
-#follower{
-	margin: auto;
-	width: 160px;
-	overflow: auto;
 }
