@@ -24,6 +24,11 @@ $(document).ready(function($) {
 		return false;
 	});
 
-	$('#keySearch').val('bghackathon');
+
+  if (window.location.hostname == "localhost"){
+	  $('#keySearch').val('bghackathon');
+  } else {
+	  $('#keySearch').val(window.location.pathname);
+  }
 	$('#keywords').submit();
-});		
+});
