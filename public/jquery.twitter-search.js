@@ -16,10 +16,10 @@
 		* documentation: https://dev.twitter.com/docs/api/1/get/statuses/user_timeline
 		* @param {string} twitter user name (scren name with or without the @-prefix)
 		*/
-	function loadTweets(keyword) {
+	function loadTweets(keyword, host) {
     console.log("keyword is" + keyword);
 		$.ajax({
-			url: '/users/' + keyword,
+      url: host + '/users/' + keyword,
 			type: 'GET',
 			success: displayUsers
 		});
