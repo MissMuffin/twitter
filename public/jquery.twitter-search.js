@@ -66,7 +66,7 @@
 
 	function displayUsers(data) {
 			var userList = [];
-
+console.log(data);
 		for (var i = 0; i < data.results.length; i++){
 
 			var userData = {};
@@ -87,14 +87,14 @@
 			//userList.push(userData);
 			//}	
 			}
-		
+
 	
 
 		//$.unique(userList);
 		
 		for (var j = 0; j < userList.length; j++){
 
-			$("#userFrame").append('<li><img src="' + userList[j]["profileImageUrl"] + '" class="userImage" /></li>');
+			$("#users").append('<img src="' + userList[j]["profileImageUrl"] + '" class="userImage" />');
 			//console.log(userList[j].profile_image_url);
 		}
 	};
