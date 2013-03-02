@@ -14,8 +14,10 @@ $(document).ready(function($) {
 	});
 
 
-  if (window.location.hostname == "localhost"){
+  if (window.location.hostname == "localhost" || window.location.hostname == ""){
+	  
 	  $('#tweets').twitterSearch("bghackathon");
+
   } else {
 	  $('#keySearch').val(window.location.pathname);
   }
