@@ -13,9 +13,9 @@ $(document).ready(function($) {
 	});
 
 
-  if (window.location.hostname == "localhost" || window.location.hostname == ""){
-	  $('#tweets').twitterSearch("bghackathon");
-  } else {
-	  $('#tweets').twitterSearch(window.location.pathname);
+  if (window.location.hostname == "localhost" || window.location.hostname == ""){ // running locally
+	  $('#tweets').twitterSearch("bghackathon", "http://immense-brook-6493.herokuapp.com");
+  } else { // we are running on heroku
+	  $('#tweets').twitterSearch(window.location.pathname, "");
   }
 });
