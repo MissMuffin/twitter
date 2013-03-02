@@ -65,30 +65,36 @@
 	};
 
 	function displayUsers(data) {
-		var userList = [];
+			var userList = [];
 
 			var profileLink = "";
 			var profileImageUrl = "";
 			var uid = "";
 			var userName = "";
 
+		console.log(data);
+
 		for (var i = 0; i < data.results.length; i++){
+
+
+
+			var userData = {};
 			
-			profileImageUrl = data.results[i].profile_image_url;
-			uid = data.results[i].from_user_id;
-			userName = data.results[i].from_user;
+			userData["profileImageUrl"] = data.results[i].profile_image_url;
+			userData["uid"] = data.results[i].from_user_id;
+			userData["userName"] = data.results[i].from_user;
 
-			profileLink = '<img data-tc-id="' + uid + '" data-tc-username="' + userName + '" src="' + profileImageUrl + '" />';
-
-			userList.push(profileLink);
+			userList.push(userData);
 
 		}
 
 		$.unique(userList);
-
+		
+		console.log(userList);
+		
 		for (var j = 0; j < userList.length; j++){
 
-			$("#tweetFrame").append('<li>' + userList[j] + '</li>');
+			$("#tweetFrame").append('<li><img src="' + userList[j]["profileImageUrl"] + '" /></li>');
 			//console.log(userList[j].profile_image_url);
 		}
 	};
