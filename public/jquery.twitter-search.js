@@ -17,81 +17,45 @@
 		* @param {string} twitter user name (scren name with or without the @-prefix)
 		*/
 	function loadTweets(keyword) {
+    console.log("keyword is" + keyword);
 		$.ajax({
-			url: 'http://search.twitter.com/search.json',
+			url: '/users/' + keyword,
 			type: 'GET',
-			dataType: 'jsonp',
-			data: {
-				q: keyword
-			},
 			success: displayUsers
 		});
 	};
 
-	/**
-		* add tweets to the DOM using a simple template
-		* @param {object} data returned from Twitter API
-		*/
-	function displayTweets(data) {
-		for (var i = 0; i < data.results.length; i++) {
-			var tweetKlasse = "tweet";
-			var content = ify.clean(data.results[i].text);
-			var user = data.results[i].from_user;
 
-			if(content.indexOf('RT')===0){
-				tweetKlasse = "retweet";
-			}
-			var tweet = tweetTemplate
-				.replace('ID', user)
-				.replace('CLASS', tweetKlasse)
-				.replace('imgURL', data.results[i].profile_image_url)
-				.replace('USER', user)
-				.replace('CONTENT', content)
-				.replace('TIME', timeAgo(data.results[i].created_at));
-
-			var $tweet = $(tweet);
-			$tweet.data("user", user)
-			$tweet.click(function(){
-				$('#pictureFrame').html('');
-				$('#userDetails').html('');
-				bioData($(this).data("user"));
-			});
-
-
-			$container.append($tweet);
-
-		};
-		displayUsers(data);
-	};
-
-	function displayUsers(data) {
+	function displayUsers(users) {
 			var userList = [];
-console.log(data);
-		for (var i = 0; i < data.results.length; i++){
+    console.log("num users: "+users.length);
+    console.log(users);
+		for (var i = 0; i < users.length; i++){
 
 			var userData = {};
 
 			//check if array already contains an object, add if not
 		//	for(var k = 0; k < userList.length; k++){
-		//		if (!userList[k][userName].contains(data.results[i].from_user)){
+		//		if (!userList[k][userName].contains(users[i].from_user)){
 
 					//set attributes to array objects
-					userData["profileImageUrl"] = data.results[i].profile_image_url;
-					userData["uid"] = data.results[i].from_user_id;
-					userData["userName"] = data.results[i].from_user;
-			
+					userData["profileImageUrl"] = users[i].profile_image_url;
+					userData["id"] = users[i].id;
+					userData["username"] = users[i].username;
+
 					userList.push(userData);
 		//		}
-		
-			//if (!containsUser(data.results[i]["username"])){
+
+			//if (!containsUser(users[i]["username"])){
 			//userList.push(userData);
-			//}	
+			//}
 			}
 
-	
+
+      console.log(userList);
 
 		//$.unique(userList);
-		
+
 		for (var j = 0; j < userList.length; j++){
 
 			$("#users").append('<img src="' + userList[j]["profileImageUrl"] + '" class="userImage" />');

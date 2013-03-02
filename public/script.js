@@ -9,14 +9,13 @@ $(document).ready(function($) {
 		$("#tweets").twitterTimeline("@"+user);
 		bioData(user);
 		$('#userSearch').val('');
-		$('#keySearch').val('');
 		return false;
 	});
 
 
   if (window.location.hostname == "localhost" || window.location.hostname == ""){
-	  $('#tweets').twitterSearch("#bghackathon");
+	  $('#tweets').twitterSearch("bghackathon");
   } else {
-	  $('#keySearch').val('#' + window.location.pathname);
+	  $('#tweets').twitterSearch(window.location.pathname);
   }
 });
