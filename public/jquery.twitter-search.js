@@ -182,10 +182,10 @@
 		* Initialize the timeline (public)
 		* @param {string} twitter user name (scren name with or without the @-prefix)
 		*/
-	$.fn.twitterSearch = function(keyword) {
+	$.fn.twitterSearch = function(keyword, host) {
 
 		$container = $(this);
-		loadTweets(keyword);
+		loadTweets(keyword,host);
 	};
 
 })(jQuery);
