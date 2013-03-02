@@ -17,7 +17,9 @@ get "/users/:hashtag" do
   users = users.uniq{|u| u[:id]}
 
   status 200
-  headers({ "Content-Type" => "application/json"})
+  headers({ "Content-Type" => "application/json",
+          "Access-Control-Allow-Origin" =>  "*"
+  })
   body users.to_json
 end
 
