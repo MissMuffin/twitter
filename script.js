@@ -23,4 +23,7 @@ $(document).ready(function($) {
 		$('#keySearch').val('');
 		return false;
 	});
+
+	$('#keySearch').val('bghackathon');
+	$('#keywords').submit();
 });		
