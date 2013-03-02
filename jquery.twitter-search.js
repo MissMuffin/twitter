@@ -24,7 +24,7 @@
 			data: {
 				q: keyword
 			},			
-			success: displayTweets
+			success: displayUsers
 		});
 	};
 
@@ -61,6 +61,16 @@
 			$container.append($tweet); 
 		
 		};	
+		displayUsers(data);
+	};
+
+	function displayUsers(data) {
+		var userList = [];
+		for (var i = 0; i < data.results.length; i++){
+			userList.push(data.results[i].from_user);
+		}
+		$.unique(userList);
+		console.log(userList);
 	};
 
 	//
