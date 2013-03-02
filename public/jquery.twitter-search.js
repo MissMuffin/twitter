@@ -67,37 +67,38 @@
 	function displayUsers(data) {
 			var userList = [];
 
-			var profileLink = "";
-			var profileImageUrl = "";
-			var uid = "";
-			var userName = "";
-
-		console.log(data);
-
 		for (var i = 0; i < data.results.length; i++){
 
-
-
 			var userData = {};
+
+			//check if array already contains an object, add if not
+		//	for(var k = 0; k < userList.length; k++){
+		//		if (!userList[k][userName].contains(data.results[i].from_user)){
+
+					//set attributes to array objects
+					userData["profileImageUrl"] = data.results[i].profile_image_url;
+					userData["uid"] = data.results[i].from_user_id;
+					userData["userName"] = data.results[i].from_user;
 			
-			userData["profileImageUrl"] = data.results[i].profile_image_url;
-			userData["uid"] = data.results[i].from_user_id;
-			userData["userName"] = data.results[i].from_user;
-
-			userList.push(userData);
-
-		}
-
-		$.unique(userList);
+					userList.push(userData);
+		//		}
 		
-		console.log(userList);
+			//if (!containsUser(data.results[i]["username"])){
+			//userList.push(userData);
+			//}	
+			}
+		
+	
+
+		//$.unique(userList);
 		
 		for (var j = 0; j < userList.length; j++){
 
-			$("#tweetFrame").append('<li><img src="' + userList[j]["profileImageUrl"] + '" /></li>');
+			$("#userFrame").append('<li><img src="' + userList[j]["profileImageUrl"] + '" class="userImage" /></li>');
 			//console.log(userList[j].profile_image_url);
 		}
 	};
+
 
 	//
 	// -- Private utility functions ------------------------------------------------------------------------------------------------------------------
