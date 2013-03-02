@@ -1,15 +1,4 @@
 $(document).ready(function($) {
-	$('#keywords').bind('submit', function(event){
-		event.preventDefault();
-		var keyword = $('#keySearch').val();
-		$('#tweets').html('');
-		$('#pictureFrame').html('');
-		$('#userDetails').html('');
-		//$('#userFollowers').html('');
-		$('#tweets').twitterSearch(keyword);
-		$('#userSearch').val('');
-		$('#keySearch').val('');
-	});
 
 	$("#userName").submit(function(){
 		var user = $("#userSearch").val();
@@ -26,9 +15,8 @@ $(document).ready(function($) {
 
 
   if (window.location.hostname == "localhost"){
-	  $('#keySearch').val('bghackathon');
+	  $('#tweets').twitterSearch("bghackathon");
   } else {
 	  $('#keySearch').val(window.location.pathname);
   }
-	$('#keywords').submit();
 });
