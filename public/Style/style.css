@@ -23,15 +23,23 @@ h1{
 #eventName{
 	background-color: #f38533;
 	position: absolute;
+	color: #e6e6e6;
 	bottom: 0;
 	right: 0;
+	font-size: 60px;
 	height: 100%;
-	width: 40%;
+	text-align: bottom;
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
 
 h2{
 	color: #e6e6e6;
+	background-color: #f38533;
 	font-size: 60px;
+	display: block;
+	height: 100%;
+	text-align: bottom;
 	position: absolute;
 	float: right;
 	bottom: 0;
