@@ -9,6 +9,10 @@ include Mongo
 
 set :public_folder, 'public'
 
+get "/" do
+  File.read('public/root.html')
+end
+
 get "/:hashtag" do
   File.read('public/index.html')
 end
@@ -91,8 +95,16 @@ end
 
 def get_tweets(hashtag)
   keyword = URI::encode("#" + hashtag)
+  tweets = []
   response = HTTParty.get("http://search.twitter.com/search.json?q=#{keyword}&rpp=100")
-  response["results"]
+
+  i = 2
+  while response["results"].length != 0 && i < 5
+    tweets += response["results"]
+    response = HTTParty.get("http://search.twitter.com/search.json?q=#{keyword}&rpp=100&page=#{i}")
+    i+=1
+  end
+  tweets
 end
 
 def to_user(tweet_hash)
