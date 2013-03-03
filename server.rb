@@ -15,13 +15,11 @@ end
 
 get "/users/:hashtag" do
   hashtag = params[:hashtag]
-  tweets = get_tweets(hashtag)
 
-  tweets.each do |t|
-    user = get_user(hashtag, t["from_user_id"])
-    if !user
-      store_user(hashtag, to_user(t))
-    end
+  if Time.now.to_i - last_update_time(hashtag) > ENV['CACHE_TWEETS_SECONDS'].to_i
+    puts "updating users"
+    update_users(hashtag)
+    update_timestamp(hashtag)
   end
 
   users = get_all_users(hashtag)
@@ -45,6 +43,25 @@ def get_connection
   @db_connection
 end
 
+def last_update_time(hashtag)
+  @db = get_connection
+  coll = @db['timestamps']
+  timestamp = coll.find_one({"hashtag"=> hashtag})
+  timestamp ? timestamp["last_update_time"] : 0
+end
+
+def update_timestamp(hashtag)
+  @db = get_connection
+  coll = @db['timestamps']
+  timestamp = coll.find_one({"hashtag" => hashtag})
+  if timestamp
+    coll.update({"hashtag" => hashtag},{"hashtag" => hashtag, :last_update_time => Time.now.to_i})
+  else
+    # is there an update else insert mng method?
+    coll.insert({"hashtag" => hashtag, :last_update_time => Time.now.to_i})
+  end
+end
+
 def get_collection(hashtag)
   @db = get_connection
   coll = @db['users.' + hashtag]
@@ -60,6 +77,16 @@ end
 
 def get_all_users(hashtag)
   get_collection(hashtag).find.to_a
+end
+
+def update_users(hashtag)
+  tweets = get_tweets(hashtag)
+  tweets.each do |t|
+    user = get_user(hashtag, t["from_user_id"])
+    if !user
+      store_user(hashtag, to_user(t))
+    end
+  end
 end
 
 def get_tweets(hashtag)
