@@ -3,8 +3,31 @@ require 'sinatra'
 require 'httparty'
 require 'json'
 require 'open-uri'
+require 'mongo'
+
+include Mongo
 
 set :public_folder, 'public'
+
+def get_connection
+  return @db_connection if @db_connection
+  db = URI.parse(ENV['MONGOHQ_URL'])
+  db_name = db.path.gsub(/^\//, '')
+  @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
+  @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
+  @db_connection
+end
+
+get "/mongo" do
+  @db = get_connection
+  @coll   = @db['test']
+
+  3.times do |i|
+      @coll.insert({'a' => i+1})
+  end
+  "There are #{@coll.count} records."
+end
+
 
 get "/:hashtag" do
   File.read('public/index.html')
