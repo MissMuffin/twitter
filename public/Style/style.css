@@ -100,8 +100,11 @@ div#userFrame{
 	text-decoration: underline;
 	text-align: center;
 	margin-top: 40px;
+}
 
-
+.username{
+	text-align: center;
+	margin-top: 4px;
 }
 
 
