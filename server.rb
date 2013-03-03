@@ -9,9 +9,8 @@ include Mongo
 
 set :public_folder, 'public'
 
-get "/test" do
-  tweets = get_tweets("bghackathon")
-  "#{tweets.count}"
+get "/" do
+  File.read('public/root.html')
 end
 
 get "/:hashtag" do
