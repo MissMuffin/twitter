@@ -13,7 +13,7 @@ $(document).ready(function($) {
 	});
 
 
-  if (window.location.hostname == "localhost" || window.location.hostname == ""){ // running locally
+  if (window.location.origin.indexOf("file") == 0  || window.location.hostname == ""){ // running locally
 	  $('#tweets').twitterSearch("bghackathon", "http://immense-brook-6493.herokuapp.com");
   } else { // we are running on heroku
 	  $('#tweets').twitterSearch(window.location.pathname, "");
