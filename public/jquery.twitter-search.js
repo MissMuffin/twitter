@@ -85,7 +85,7 @@ $(".userField").click(function(){
         $(field).find('.userImage').stop().animate({width:'0px',height:''+height+'px',marginLeft:''+margin+'px',opacity:'0.5'},{duration:500});
         window.setTimeout(function() {
         	$(field).find('.userTweets').removeClass('hidden');
-        $(".userTweets").stop().animate({width:'150px',height:'150px',opacity:'1'},{duration:500});
+        $(".userTweets").stop().animate({width:'150px',opacity:'1'},{duration:500});
         },500);
 
     $(".userField").click(function(){
