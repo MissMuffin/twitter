@@ -1,34 +1,49 @@
 body{
 	font-family: 'Titillium Web', Helvetica, sans-serif;
-	background-color: grey;
+	background-color: #e3eceb;
 }
 
 header{
-	background-color: black;
-	height: 120px;
+	/*background-color: #e3eceb;*/
+	height: 113px;
 }
 
 header {
-	
+	position: relative;
 }
 
 h1{
-	color: green;
-	font-size: 60px;
-	position: relative;
-	float: right;
-
-
+	
+	color: #e6e6e6;
+	background-color: #9bc9c5;
+	padding-left: 40px;
+	height: 30px;
 }
+
+#eventName{
+	background-color: #f38533;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	height: 100%;
+	width: 40%;
+}
+
+h2{
+	color: #e6e6e6;
+	font-size: 60px;
+	position: absolute;
+	float: right;
+	bottom: 0;
+	right: 0;
+}
+
+
 
 #logo{
 	display: inline-block;
 	height: 111px;
 	width: 526px;
-}
-
-div#main{
-
 }
 
 #users{
@@ -48,5 +63,16 @@ div#userFrame{
 }
 
 .userImage{
-	display: block;
+	
 }
+
+
+// orange f38533
+// light grey ccc
+// darker grey 777
+//fast weiss e6e6e6
+// fast schwarz 111
+//dunkler blau 39aca0
+//blau bar 9bc9c5
+// bg color e3eceb
+// kasten div hell weiss f3f7f7
