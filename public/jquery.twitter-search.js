@@ -57,7 +57,7 @@
 
 		for (var j = 0; j < userList.length; j++){
 
-			$("#users").append('<div class="userField"><img src="' + userList[j]["profileImageUrl"] + '" class="userImage" /><div class="userTweets hidden">' + userList[j]["lastTweet"] + '</div></div>');
+			$("#users").append('<div class="userField"><div class="imageName">@' + userList[j]["username"] + '</div><img src="' + userList[j]["profileImageUrl"] + '" class="userImage" /><div class="userTweets hidden">' + userList[j]["lastTweet"] + '</div></div>');
 		}
 
 		//onclick action
@@ -81,10 +81,10 @@ $(".userImage").click(function(){
     });
  
     $(".userTweets").click(function(){
-    	console.log(this);
+    	var field = this.parentNode;
         $(this).stop().animate({width:'0px',height:''+height+'px',marginLeft:''+margin+'px',opacity:'0.5'},{duration:500});
         window.setTimeout(function() {
-        	
+        	$(field).find('.userTweets').addClass('hidden');
         $(".userImage").stop().animate({width:''+width+'px',height:''+height+'px',marginLeft:'0px',opacity:'1'},{duration:500});
         },500);
     });
