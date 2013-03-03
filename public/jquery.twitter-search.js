@@ -18,6 +18,7 @@
 		*/
 	function loadTweets(keyword, host) {
     console.log("keyword is" + keyword);
+    console.log("host is" + host);
 		$.ajax({
       url: host + '/users/' + keyword,
 			type: 'GET',
