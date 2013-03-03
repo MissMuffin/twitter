@@ -108,7 +108,8 @@ def get_tweets(hashtag)
 end
 
 def to_user(tweet_hash)
-  { :username=> tweet_hash["from_user_name"],
+  { :username=> tweet_hash["from_user"],
+    :display_name => tweet_hash["from_user_name"],
     :profile_image_url => tweet_hash["profile_image_url"],
     :twitter_id => tweet_hash["from_user_id"],
     :last_tweet => {

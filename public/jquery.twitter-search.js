@@ -43,6 +43,7 @@
 					userData["profileImageUrl"] = users[i].profile_image_url;
 					userData["id"] = users[i].id;
 					userData["username"] = users[i].username;
+					userData["display_name"] = users[i].display_name;
 					userData["lastTweet"] = users[i].last_tweet.text;
 
 					userList.push(userData);
@@ -56,8 +57,15 @@
 		//$.unique(userList);
 
 		for (var j = 0; j < userList.length; j++){
+      var username = userList[j]["username"];
+      var display_name = userList[j]["display_name"];
 
-			$("#users").append('<div class="userField"><img src="' + userList[j]["profileImageUrl"] + '" class="userImage" /><div class="userTweets hidden">' + userList[j]["lastTweet"] + '</div><div class="imageName">@' + userList[j]["username"] + '</div></div>');
+			$("#users").append('<div class="userField"><img src="' + userList[j]["profileImageUrl"] + '" class="userImage" />'
+      +'<div class="userTweets hidden">' + userList[j]["lastTweet"] + '</div>'
+      +'<div class="imageName">'+ display_name + '</div>'
+      + '<div><a href="https://twitter.com/'+ username +'" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @'+ username +'</a></div>'
+      + '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>'
+      +'</div>');
 		}
 
 		//onclick action
@@ -79,7 +87,6 @@ $(".userField").click(function(){
         $(".userTweets").stop().animate({width:''+width+'px',height:''+height+'px',opacity:'1'},{duration:500});
         },500);
 
- 
     $(".userField").click(function(){
     	var field = this;
         $(field).find('.userTweets').stop().animate({opacity:'0.5'},{duration:500});
