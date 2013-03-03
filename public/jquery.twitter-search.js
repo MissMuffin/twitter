@@ -63,7 +63,8 @@
 			$("#users").append('<div class="userField"><img src="' + userList[j]["profileImageUrl"] + '" class="userImage" />'
       +'<div class="userTweets hidden">' + userList[j]["lastTweet"] + '</div>'
       +'<div class="imageName">'+ display_name + '</div>'
-      + '<div><a href="https://twitter.com/'+ username +'" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @'+ username +'</a></div>'
+      +'<div class="username">@'+ username + '</div>'
+      + '<div><a href="https://twitter.com/'+ username +'" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" data-lang="en">Follow @'+ username +'</a></div>'
       + '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>'
       +'</div>');
 		}
