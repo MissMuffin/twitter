@@ -17,8 +17,8 @@
 		* @param {string} twitter user name (scren name with or without the @-prefix)
 		*/
 	function loadTweets(keyword, host) {
-    console.log("keyword is" + keyword);
-    console.log("host is" + host);
+    //console.log("keyword is" + keyword);
+    //console.log("host is" + host);
 		$.ajax({
       url: host + '/users/' + keyword,
 			type: 'GET',
@@ -29,8 +29,8 @@
 
 	function displayUsers(users) {
 			var userList = [];
-    console.log("num users: "+users.length);
-    console.log(users);
+    //console.log("num users: "+users.length);
+    //console.log(users);
 		for (var i = 0; i < users.length; i++){
 
 			var userData = {};
@@ -43,6 +43,7 @@
 					userData["profileImageUrl"] = users[i].profile_image_url;
 					userData["id"] = users[i].id;
 					userData["username"] = users[i].username;
+					userData["lastTweet"] = users[i].last_tweet.text;
 
 					userList.push(userData);
 		//		}
@@ -52,15 +53,54 @@
 			//}
 			}
 
-
-      console.log(userList);
-
 		//$.unique(userList);
 
 		for (var j = 0; j < userList.length; j++){
 
-			$("#users").append('<img src="' + userList[j]["profileImageUrl"] + '" class="userImage" />');
+			$("#users").append('<div class="userField"><img src="' + userList[j]["profileImageUrl"] + '" class="userImage" /><div class="userTweets hidden">' + userList[j]["lastTweet"] + '</div></div>');
 		}
+
+		//onclick action
+
+
+
+var margin =$(".userImage").width()/2;
+var width=$(".userImage").width();
+var height=$(".userImage").height();
+
+$(".userTweets").stop().css({width:'0px',height:''+height+'px',marginLeft:''+margin+'px',opacity:'0.5'});
+//$("#reflection2").stop().css({width:'0px',height:''+height+'px',marginLeft:''+margin+'px'});
+
+$(".userImage").click(function(){
+	var field = this.parentNode;
+	console.log(field);
+        $(this).stop().animate({width:'0px',height:''+height+'px',marginLeft:''+margin+'px',opacity:'0.5'},{duration:500});
+        window.setTimeout(function() {
+        	//console.log(this);
+        	$('.userTweets').removeClass('hidden');
+        $(".userTweets").stop().animate({width:''+width+'px',height:''+height+'px',marginLeft:'0px',opacity:'1'},{duration:500});
+        },500);
+    });
+ 
+    $(".userTweets").click(function(){
+        $(this).stop().animate({width:'0px',height:''+height+'px',marginLeft:''+margin+'px',opacity:'0.5'},{duration:500});
+        window.setTimeout(function() {
+        $(".userImage").stop().animate({width:''+width+'px',height:''+height+'px',marginLeft:'0px',opacity:'1'},{duration:500});
+        },500);
+    });
+
+
+
+
+
+
+
+		//$('.userImage').bind('click', function(){
+		//	$(this).flip({
+		//		direction:'tb',
+		//		content: 'test'
+		//	});
+		//});
 	};
 
 
