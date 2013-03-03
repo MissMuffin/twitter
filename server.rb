@@ -26,7 +26,7 @@ get "/users/:hashtag" do
     update_timestamp(hashtag)
   end
 
-  users = get_all_users(hashtag)
+  users = get_all_users(hashtag).sort{|a,b| a["display_name"] <=> b["display_name"]}
 
   status 200
   headers({
