@@ -48,10 +48,10 @@ h2{
 
 #users{
 	float: left;
-	margin: 35px 0 0 35px;
+	margin: 35px 35px 0 35px;
  	display: block;
- 	height: 350px;
- 	width: 330px;
+ 	/*height: 350px;
+ 	width: 500px;*/
  	background-color: rgba(0,0,0,0.56);
  	border-radius: 7px;
 }
@@ -60,6 +60,21 @@ div#userFrame{
 	height: 100%;
 	width: 100%;
 	background-color: blue;
+}
+
+.userTweets {
+	display: inline-block;
+}
+
+.userField {
+	display: inline-block;
+/*	height: 75px;
+	width: 75px;*/
+	padding: 5px;
+}
+
+.hidden {
+	display: none;
 }
 
 .userImage{
