@@ -1,148 +1,115 @@
 body{
-	font-family: 'Titillium Web', Helvetica, sans-serif;
-
-	background-image: url("Bilder/twit_background_ver2.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: left center;
+	font-family: Helvetica, sans-serif;
+	background-color: #e3eceb;
 }
 
-header {
-	background-color: black;
-	height: 110px;
+header{
+	/*background-color: #e3eceb;*/
+	height: 113px;
+}
+
+header {	
+	position: relative;
 }
 
 h1{
-	position: absolute;
-	right: 0;
-	font-size: 90px;
-	text-align: center;
-	color: #3a99c9;
+	
+	color: #e6e6e6;
+	background-color: #9bc9c5;
+	padding-left: 40px;
+	height: 30px;
+	font-size: 22px;
+}
 
+#eventName{
+	background-color: #f38533;
+	position: absolute;
+	color: #e6e6e6;
+	bottom: 0;
+	right: 0;
+	font-size: 60px;
+	height: 100%;
+	text-align: bottom;
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
 
 h2{
-	font-size: 0.8em;
-	color: #406c80;
-	float: right;
-	top: 91px;
-
-}
-
-div#tweetFrame{
-
-	width: 73.5%;
-	height: 600px;
-	background-color: rgba(0,0,0,0.8);
-	margin-right: 10px;	
-	float: left;
-	border-radius: 5px;
-	overflow: auto;
-
-}
-
-div#bioFrame{
-
-	width: 23.5%;
-	height: 600px;
-	background-color: blue;
-	float: left;
-	background-color: rgba(0,0,0,0.8);
-	border-radius: 5px;
-
-}
-
-div#pictureFrame{
-	width: 60px;
-	margin: auto;
-	padding: 20px;
-	padding-top: 25px;
-}
-
-#pictureFrame img{
-	width: 100%;
-}
-
-#bioFrame li{
-	padding: 2px;
-	margin: 7px;
-	border-bottom: solid 1px rgba(100,100,100,100.8); 
-	color: #aabfc5;
-
-}
-
-#tweeter {
-	color: #c4a9be;
-}
-
-.tweetUserPic{
-	margin: 2px;
+	color: #e6e6e6;
+	background-color: #f38533;
+	font-size: 60px;
 	display: block;
-}
-
-.retweet{
-	background-color: rgba(170,191,197,0.1);
-	padding-left: 50px;
-}
-
-div#mainFrame{
-	width: 1010px;
-	height: 600px;
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
-
-}
-
-div.searches{
-
-	margin-left: 5%;
-	margin-top: 10%;
-}
-
-#searchFrame{
-	margin-left: 20px;
-}
-
-div#searchFrame{
+	height: 100%;
+	text-align: bottom;
 	position: absolute;
-	top: 60px;
-
+	float: right;
+	bottom: 0;
+	right: 0;
 }
 
-#searchFrame div{
+.userTweets{
+	text-align: center;
+	margin-left: 10px;
+}
+
+#logo{
+	display: inline-block;
+	height: 111px;
+	width: 526px;
+}
+
+#users{
 	float: left;
-	padding: 7px;
+	margin: 35px 35px 0 35px;
+ 	display: block;
+ 	/*background-color: rgba(0,0,0,0.56);*/
+ 	border-radius: 7px;
 }
 
-#searchFrame input{
-	border-radius: 4px;
+div#userFrame{
+	height: 100%;
+	width: 100%;
+	
 }
 
-ul#tweets {
-	margin: 20px;
-	color: #aabfc5;
+.userTweets {
+	display: inline-block;
 }
 
-#tweets a {
-	color: #3a99c9;
-	text-decoration: none;
+.userField {
+	display: inline-block;
+	height: 230px;
+	width: 230px;
+	padding: 5px;
+	margin: 35px 0 0 50px;
+	background-color: #f3f7f7;
+	border-radius: 7px;
 }
 
-#tweets li {
-	margin: 2px;
-	padding: 6.5px;
-	border-bottom: solid 1px rgba(100,100,100,100.8);
-	border-radius: 3px;
+.hidden {
+	display: none;
 }
 
-#tweets li:hover {
-	background-color: rgba(0,0,0,0.2);
-	transition: 0.2s;
+.userImage{
+	margin: 45px 0 0 38%;
 }
 
-#follower{
-	margin: auto;
-	width: 160px;
-	overflow: auto;
+.imageName{
+	color: #111;
+	font-size: 20px;
+	text-decoration: underline;
+	text-align: center;
+
+
 }
+
+
+// orange f38533
+// light grey ccc
+// darker grey 777
+//fast weiss e6e6e6
+// fast schwarz 111
+//dunkler blau 39aca0
+//blau bar 9bc9c5
+// bg color e3eceb
+// kasten div hell weiss f3f7f7
