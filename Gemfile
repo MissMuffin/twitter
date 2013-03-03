@@ -1,2 +1,6 @@
 source 'http://rubygems.org'
 gem 'sinatra'
+gem 'httparty'
+gem 'json'
+gem 'mongo'
+gem 'bson_ext'
