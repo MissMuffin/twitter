@@ -73,18 +73,18 @@ $(".userTweets").stop().css({width:'0px',height:''+height+'px',marginLeft:''+mar
 
 $(".userImage").click(function(){
 	var field = this.parentNode;
-	console.log(field);
         $(this).stop().animate({width:'0px',height:''+height+'px',marginLeft:''+margin+'px',opacity:'0.5'},{duration:500});
         window.setTimeout(function() {
-        	//console.log(this);
-        	$('.userTweets').removeClass('hidden');
+        	$(field).find('.userTweets').removeClass('hidden');
         $(".userTweets").stop().animate({width:''+width+'px',height:''+height+'px',marginLeft:'0px',opacity:'1'},{duration:500});
         },500);
     });
  
     $(".userTweets").click(function(){
+    	console.log(this);
         $(this).stop().animate({width:'0px',height:''+height+'px',marginLeft:''+margin+'px',opacity:'0.5'},{duration:500});
         window.setTimeout(function() {
+        	
         $(".userImage").stop().animate({width:''+width+'px',height:''+height+'px',marginLeft:'0px',opacity:'1'},{duration:500});
         },500);
     });
