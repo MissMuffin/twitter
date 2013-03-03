@@ -93,7 +93,7 @@ $(".userField").click(function(){
         $(field).find('.userTweets').stop().animate({width:'0px',height:''+height+'px',marginLeft:''+margin+'px',opacity:'0.5'},{duration:500});
         window.setTimeout(function() {
         	$(field).find('.userTweets').addClass('hidden');
-        $(".userImage").stop().animate({width:''+width+'px',height:''+height+'px',opacity:'1'},{duration:500});
+        $(".userImage").stop().animate({width:''+width+'px',height:''+height+'px',marginLeft:'38%',opacity:'1'},{duration:500});
         },500);
     });
         });
